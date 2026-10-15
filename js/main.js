@@ -4,8 +4,6 @@ function renderProjectList() {
   const list = document.getElementById("project-list");
   if (!list) return;
 
-  document.getElementById("project-count").textContent = pad(PROJECTS.length);
-
   list.innerHTML = PROJECTS.map((p, i) => `
     <li>
       <a class="row" href="project.html?slug=${encodeURIComponent(p.slug)}">
