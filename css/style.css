@@ -104,14 +104,17 @@ ul { list-style: none; margin: 0; padding: 0; }
   gap: 32px;
 }
 
-/* Tufts ink stamp: its cream paper melts into ours, slightly askew. */
-.stamp {
-  width: 100%;
-  max-width: 200px;
-  margin-bottom: 18px;
-  mix-blend-mode: multiply;
-  transform: rotate(-2deg);
+/* The project count printed in reverse: a solid ink block with
+   paper-coloured type. */
+.hero-stat {
+  background: var(--ink);
+  color: var(--paper);
+  text-shadow: none;
+  padding: 18px 22px 14px;
 }
+
+.hero-stat .label { margin-bottom: 0; }
+
 
 .headshot {
   width: 46%;
@@ -147,15 +150,6 @@ ul { list-style: none; margin: 0; padding: 0; }
   margin-bottom: 0;
 }
 
-/* Highlight as a solid ink block with paper-coloured type, like a stamp. */
-mark.hl {
-  color: var(--paper);
-  background: var(--ink);
-  text-shadow: none;
-  padding: 0.08em 0.3em;
-  -webkit-box-decoration-break: clone;
-  box-decoration-break: clone;
-}
 
 
 .block { margin-top: 36px; }
