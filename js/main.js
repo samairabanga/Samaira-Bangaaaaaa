@@ -70,11 +70,18 @@ function renderDetail() {
   `;
 }
 
-// Touch-to-ink: hovering or tapping a line inks it for a few seconds.
+// Touch-to-ink: hovering or tapping a line splashes ink out from the
+// point touched, holds it for a few seconds, then draws it back in.
 function setupInk() {
   document.querySelectorAll(".ink").forEach((el) => {
+    el.dataset.text = el.textContent;
     let timer;
-    const ink = () => {
+    const ink = (e) => {
+      if (!el.classList.contains("inked")) {
+        const r = el.getBoundingClientRect();
+        el.style.setProperty("--x", `${e.clientX - r.left}px`);
+        el.style.setProperty("--y", `${e.clientY - r.top}px`);
+      }
       el.classList.add("inked");
       clearTimeout(timer);
       timer = setTimeout(() => el.classList.remove("inked"), 2500);
