@@ -6,35 +6,68 @@
   <title>Samaira Banga</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
   <main class="wrap">
-    <header class="intro">
-      <img class="portrait" src="assets/about-photo.jpg" alt="Samaira Banga" />
-      <h1>Samaira Banga</h1>
-      <p>Growth marketing, content, and community for tech startups. Studying Economics, Entrepreneurship, and Film at Tufts University, class of 2028.</p>
+    <div class="topbar">
+      <span>Profile</span>
+      <span>01</span>
+    </div>
+
+    <header class="hero">
+      <img class="headshot" src="assets/headshot.jpg" alt="Samaira Banga" />
+      <div class="hero-stat">
+        <div class="big-number" id="project-count">06</div>
+        <div class="label">Selected projects</div>
+      </div>
     </header>
 
-    <section id="work">
-      <h2>Work</h2>
-      <ul class="project-list" id="project-list"></ul>
+    <h1 class="name">Samaira Banga</h1>
+    <div class="label">Growth marketing</div>
+    <p class="place">Tufts University, Class of 2028</p>
+
+    <section class="block">
+      <h2 class="label">About</h2>
+      <p class="lead">Growth marketing, content, and community for tech startups.</p>
     </section>
 
-    <section>
-      <h2>Side quests</h2>
-      <ul class="plain-list">
-        <li>Ping-ponged for 7 years, #3 in India.</li>
-        <li>Reviewed 300+ restaurants. DM for recs.</li>
-        <li>Started a spice business in high school, made ~$10k.</li>
+    <section class="block">
+      <h2 class="label">Studying</h2>
+      <ul class="inline-list">
+        <li>Economics</li>
+        <li>Entrepreneurship</li>
+        <li>Film</li>
       </ul>
     </section>
 
-    <section>
-      <h2>Books</h2>
-      <p>Sapiens, Siddhartha, Steve Jobs, Zero to One, Ikigai.</p>
+    <section class="block" id="work">
+      <h2 class="label">Work</h2>
+      <ul class="rows" id="project-list"></ul>
     </section>
+
+    <section class="block">
+      <h2 class="label">Side quests</h2>
+      <ul class="rows">
+        <li class="row"><span class="row-key">Ping-pong</span><span>7 years, #3 in India</span></li>
+        <li class="row"><span class="row-key">Food</span><span>Reviewed 300+ restaurants. DM for recs</span></li>
+        <li class="row"><span class="row-key">Business</span><span>Started a spice business in high school, made ~$10k</span></li>
+      </ul>
+    </section>
+
+    <section class="block">
+      <h2 class="label">Books</h2>
+      <ul class="inline-list">
+        <li>Sapiens</li>
+        <li>Siddhartha</li>
+        <li>Steve Jobs</li>
+        <li>Zero to One</li>
+        <li>Ikigai</li>
+      </ul>
+    </section>
+
+    <footer class="footer">&copy; 2026 Samaira Banga</footer>
   </main>
 
   <script src="js/projects-data.js"></script>

@@ -1,12 +1,17 @@
+const pad = (n) => String(n).padStart(2, "0");
+
 function renderProjectList() {
   const list = document.getElementById("project-list");
   if (!list) return;
 
-  list.innerHTML = PROJECTS.map((p) => `
+  document.getElementById("project-count").textContent = pad(PROJECTS.length);
+
+  list.innerHTML = PROJECTS.map((p, i) => `
     <li>
-      <a href="project.html?slug=${encodeURIComponent(p.slug)}">
-        <span class="name">${p.title}</span>
-        <span class="meta">${p.meta}</span>
+      <a class="row" href="project.html?slug=${encodeURIComponent(p.slug)}">
+        <span class="row-key">${pad(i + 1)}</span>
+        <span><span class="row-title">${p.title}</span><br /><span class="muted">${p.meta}</span></span>
+        <span class="arrow">&nearr;</span>
       </a>
     </li>
   `).join("");
@@ -22,7 +27,7 @@ function figure({ image, url, text, portrait }) {
     ? `<a href="${url}" target="_blank" rel="noopener noreferrer">${img}</a>`
     : img;
   const view = url
-    ? `<a class="view" href="${url}" target="_blank" rel="noopener noreferrer">[View on ${site}]</a>`
+    ? `<a class="view" href="${url}" target="_blank" rel="noopener noreferrer">View on ${site} <span class="arrow">&nearr;</span></a>`
     : "";
   const caption = paragraphs(text) + view;
 
@@ -39,8 +44,10 @@ function renderDetail() {
   if (!el) return;
 
   const slug = new URLSearchParams(window.location.search).get("slug");
-  const project = PROJECTS.find((p) => p.slug === slug) || PROJECTS[0];
+  const index = Math.max(0, PROJECTS.findIndex((p) => p.slug === slug));
+  const project = PROJECTS[index];
   document.title = `${project.title} — Samaira Banga`;
+  document.getElementById("project-index").textContent = pad(index + 1);
 
   // Every project's media, whatever shape it was entered in, becomes the
   // same simple grid of figures.
@@ -58,7 +65,10 @@ function renderDetail() {
 
   el.innerHTML = `
     <h1 class="detail-title">${project.title}</h1>
-    <p class="detail-sub">${project.role} · ${project.meta}</p>
+    <ul class="rows detail-facts">
+      <li class="row"><span class="row-key">Role</span><span>${project.meta}</span><span></span></li>
+      <li class="row"><span class="row-key">Company</span><span>${project.role}</span><span></span></li>
+    </ul>
     ${figures.length ? `<div class="media">${figures.join("")}</div>` : ""}
     ${bodyText.length ? `<div class="body">${paragraphs(bodyText)}</div>` : ""}
   `;
