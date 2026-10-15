@@ -120,6 +120,8 @@ ul { list-style: none; margin: 0; padding: 0; }
   margin: 26px 0 16px;
 }
 
+.tagline { margin-bottom: 8px; }
+
 .place {
   padding-bottom: 28px;
   border-bottom: 1px solid var(--rule);
