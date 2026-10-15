@@ -63,10 +63,6 @@ function renderDetail() {
 
   el.innerHTML = `
     <h1 class="detail-title">${project.title}</h1>
-    <ul class="rows detail-facts">
-      <li class="row"><span class="row-key">Role</span><span>${project.meta}</span><span></span></li>
-      <li class="row"><span class="row-key">Company</span><span>${project.role}</span><span></span></li>
-    </ul>
     ${figures.length ? `<div class="media">${figures.join("")}</div>` : ""}
     ${bodyText.length ? `<div class="body">${paragraphs(bodyText)}</div>` : ""}
   `;

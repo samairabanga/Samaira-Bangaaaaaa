@@ -201,10 +201,8 @@ a.row:hover .row-title {
   font-family: var(--press);
   font-size: clamp(2.6rem, 10vw, 4rem);
   line-height: 1;
-  margin-bottom: 28px;
+  margin-bottom: 40px;
 }
-
-.detail-facts { margin-bottom: 40px; }
 
 .media {
   display: grid;
