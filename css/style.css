@@ -150,6 +150,10 @@ ul { list-style: none; margin: 0; padding: 0; }
 
 .muted { color: var(--faded); }
 
+/* Work list: no rules between the numbered projects. */
+#project-list { border-top: 0; }
+#project-list .row { border-bottom: 0; padding: 10px 0; }
+
 a.row:hover .row-title {
   text-decoration: underline;
   text-decoration-thickness: 1px;
