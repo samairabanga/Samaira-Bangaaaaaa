@@ -22,7 +22,7 @@ function figure({ image, url, text, portrait }) {
     ? `<a href="${url}" target="_blank" rel="noopener noreferrer">${img}</a>`
     : img;
   const view = url
-    ? `<a class="view" href="${url}" target="_blank" rel="noopener noreferrer">View on ${site} &nearr;</a>`
+    ? `<a class="view" href="${url}" target="_blank" rel="noopener noreferrer">[View on ${site}]</a>`
     : "";
   const caption = paragraphs(text) + view;
 
