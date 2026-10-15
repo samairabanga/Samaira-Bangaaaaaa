@@ -4,25 +4,37 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Samaira Banga</title>
-  <link rel="preconnect" href="https://api.fontshare.com" />
-  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" media="print" onload="this.media='all'" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <header class="site-header">
-    <div class="wrap">
-      <div class="brand">SB</div>
-      <nav class="main-nav">
-        <a href="index.html" class="active">About</a>
-        <a href="projects.html">Projects</a>
-      </nav>
-    </div>
-  </header>
+  <main class="wrap">
+    <header class="intro">
+      <img class="portrait" src="assets/about-photo.jpg" alt="Samaira Banga" />
+      <h1>Samaira Banga</h1>
+      <p>Growth marketing, content, and community for tech startups. Studying Economics, Entrepreneurship, and Film at Tufts University, class of 2028.</p>
+    </header>
 
-  <main class="home-main">
-    <img class="about-hero" src="assets/about-newphoto.jpg" alt="Samaira Banga" />
+    <section id="work">
+      <h2>Work</h2>
+      <ul class="project-list" id="project-list"></ul>
+    </section>
+
+    <section>
+      <h2>Side quests</h2>
+      <ul class="plain-list">
+        <li>Ping-ponged for 7 years, #3 in India.</li>
+        <li>Reviewed 300+ restaurants. DM for recs.</li>
+        <li>Started a spice business in high school, made ~$10k.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Books</h2>
+      <p>Sapiens, Siddhartha, Steve Jobs, Zero to One, Ikigai.</p>
+    </section>
   </main>
 
+  <script src="js/projects-data.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
