@@ -249,6 +249,7 @@ a.row:hover .row-title {
 .body p + p { margin-top: 14px; }
 
 .body a,
+.block p a,
 figcaption a:not(.view) { text-decoration: underline; text-underline-offset: 3px; }
 
 @media (max-width: 480px) {
