@@ -204,6 +204,14 @@ a.row:hover .row-title {
   margin-bottom: 40px;
 }
 
+/* When a label or tagline follows the title, pull them up under it. */
+.detail-title:has(+ .label) { margin-bottom: 18px; }
+
+.detail-tagline {
+  font-size: 1.1rem;
+  margin: 2px 0 40px;
+}
+
 .media {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));

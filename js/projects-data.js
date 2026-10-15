@@ -54,6 +54,10 @@ const PROJECTS = [
   {
     slug: "whoop",
     title: "WHOOP",
+    // Optional project-page header: heading, small label, one-line tagline.
+    heading: "Whoop X Mass AI Coalition",
+    kicker: "Community Campaign",
+    tagline: "Retaining Boston's top talent in Mass",
     role: "Wearable fitness and health platform",
     meta: "Community campaign",
     cover: "assets/whoop-cover.jpg",

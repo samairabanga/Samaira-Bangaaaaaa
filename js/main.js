@@ -62,7 +62,9 @@ function renderDetail() {
   ];
 
   el.innerHTML = `
-    <h1 class="detail-title">${project.title}</h1>
+    <h1 class="detail-title">${project.heading || project.title}</h1>
+    ${project.kicker ? `<div class="label">${project.kicker}</div>` : ""}
+    ${project.tagline ? `<p class="detail-tagline">${project.tagline}</p>` : ""}
     ${figures.length ? `<div class="media">${figures.join("")}</div>` : ""}
     ${bodyText.length ? `<div class="body">${paragraphs(bodyText)}</div>` : ""}
   `;
