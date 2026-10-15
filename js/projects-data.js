@@ -75,6 +75,8 @@ const PROJECTS = [
   {
     slug: "gamma",
     title: "GAMMA",
+    heading: "Gamma X Girls into VC hackathon",
+    tagline: "Creativity and Communication in the Age of AI",
     role: "AI powered presentations",
     meta: "Campaign",
     cover: "assets/gamma-cover.jpg",

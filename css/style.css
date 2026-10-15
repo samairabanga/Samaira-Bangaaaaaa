@@ -205,7 +205,8 @@ a.row:hover .row-title {
 }
 
 /* When a label or tagline follows the title, pull them up under it. */
-.detail-title:has(+ .label) { margin-bottom: 18px; }
+.detail-title:has(+ .label),
+.detail-title:has(+ .detail-tagline) { margin-bottom: 18px; }
 
 .detail-tagline {
   font-size: 1.1rem;
