@@ -76,7 +76,7 @@ const PROJECTS = [
     slug: "gamma",
     title: "GAMMA",
     heading: "Gamma X Girls into VC hackathon",
-    tagline: "Creativity and Communication in the Age of AI",
+    tagline: "3 Perspectives on creativity and communication in the age of AI.",
     role: "AI powered presentations",
     meta: "Campaign",
     cover: "assets/gamma-cover.jpg",
@@ -85,9 +85,6 @@ const PROJECTS = [
         image: "assets/gamma.jpg",
         url: "https://www.linkedin.com/feed/update/urn:li:activity:7478933854884425728/"
       }
-    ],
-    body: [
-      "3 Perspectives on the process and creativity of visual communication in the age of AI."
     ]
   },
   {
