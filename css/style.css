@@ -3,6 +3,7 @@
   --ink: #231e18;
   --faded: #6f6455;
   --rule: rgba(35, 30, 24, 0.35);
+  --desk: #2b2621;
   --type: "Special Elite", "Courier Prime", "Courier New", monospace;
   --press: "IM Fell English", Georgia, "Times New Roman", serif;
   /* Fine paper grain, tinted brown. */
@@ -11,7 +12,7 @@
 
 * { box-sizing: border-box; }
 
-html { background: var(--paper); }
+html { background: var(--desk); }
 
 body {
   margin: 0;
@@ -20,17 +21,9 @@ body {
   font: 15px/1.7 var(--type);
   /* Ink spreading slightly into the paper. */
   text-shadow: 0 0 0.6px rgba(35, 30, 24, 0.55);
-  background: var(--grain), var(--paper);
-}
-
-/* Darkened, aged edges of the sheet. */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 10;
-  background: radial-gradient(ellipse at center, transparent 55%, rgba(92, 70, 40, 0.18) 100%);
+  /* A dark desk around the page, so the sides read as background. */
+  background: var(--grain), var(--desk);
+  padding: 48px 16px;
 }
 
 a { color: inherit; text-decoration: none; }
@@ -43,10 +36,16 @@ ul { list-style: none; margin: 0; padding: 0; }
 
 ::selection { background: var(--ink); color: var(--paper); }
 
+/* The page itself: one portrait sheet of paper with aged, darker edges. */
 .wrap {
-  max-width: 600px;
+  max-width: 640px;
+  min-height: calc(100vh - 96px);
   margin: 0 auto;
-  padding: 36px 24px 48px;
+  padding: 40px 44px 48px;
+  background: var(--grain), var(--paper);
+  box-shadow:
+    inset 0 0 90px rgba(92, 70, 40, 0.22),
+    0 18px 50px rgba(0, 0, 0, 0.5);
 }
 
 /* Small typed labels: PROFILE, ABOUT, WORK… */
@@ -149,14 +148,14 @@ ul { list-style: none; margin: 0; padding: 0; }
   margin-bottom: 0;
 }
 
-/* Hand-drawn highlighter: a warm marker swipe with rough, uneven edges. */
+/* Highlight as a solid ink block with paper-coloured type, like a stamp. */
 mark.hl {
-  color: inherit;
-  padding: 0.05em 0.3em;
-  margin: 0 -0.3em;
+  color: var(--paper);
+  background: var(--ink);
+  text-shadow: none;
+  padding: 0.08em 0.3em;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 24' preserveAspectRatio='none'%3E%3Cfilter id='r'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.08 0.6' numOctaves='2'/%3E%3CfeDisplacementMap in='SourceGraphic' scale='4'/%3E%3C/filter%3E%3Cpath d='M4 5.5C70 3.6 150 4.8 296 3.2L294 20.4C200 21.6 90 19.8 6 21.2Z' fill='%23e3c060' fill-opacity='0.62' filter='url(%23r)'/%3E%3C/svg%3E") no-repeat center / 100% 100%;
 }
 
 /* Hand-drawn ink underline: a wobbly main stroke plus a fainter second
@@ -268,6 +267,16 @@ a.row:hover .row-title {
 .body a,
 .block p a,
 figcaption a:not(.view) { text-decoration: underline; text-underline-offset: 3px; }
+
+@media (max-width: 680px) {
+  /* On phones the sheet fills the screen. */
+  body { padding: 0; }
+  .wrap {
+    min-height: 100vh;
+    padding: 32px 20px 40px;
+    box-shadow: inset 0 0 60px rgba(92, 70, 40, 0.2);
+  }
+}
 
 @media (max-width: 480px) {
   .row { grid-template-columns: 6.5rem 1fr auto; }
