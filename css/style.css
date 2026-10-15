@@ -130,7 +130,11 @@ ul { list-style: none; margin: 0; padding: 0; }
   margin: 26px 0 16px;
 }
 
-.tagline { margin-bottom: 8px; }
+.tagline {
+  font-size: 1.35rem;
+  line-height: 1.4;
+  margin-bottom: 12px;
+}
 
 /* Shrinks to the width of its longest line, so the pen stroke below
    ends where "Economics and Film at Tufts" ends. */
@@ -140,7 +144,20 @@ ul { list-style: none; margin: 0; padding: 0; }
   padding-bottom: 16px;
 }
 
-.byline .label { margin-bottom: 0; }
+.byline .label {
+  font-size: 0.95rem;
+  margin-bottom: 0;
+}
+
+/* Hand-drawn highlighter: a warm marker swipe with rough, uneven edges. */
+mark.hl {
+  color: inherit;
+  padding: 0.05em 0.3em;
+  margin: 0 -0.3em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 24' preserveAspectRatio='none'%3E%3Cfilter id='r'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.08 0.6' numOctaves='2'/%3E%3CfeDisplacementMap in='SourceGraphic' scale='4'/%3E%3C/filter%3E%3Cpath d='M4 5.5C70 3.6 150 4.8 296 3.2L294 20.4C200 21.6 90 19.8 6 21.2Z' fill='%23e3c060' fill-opacity='0.62' filter='url(%23r)'/%3E%3C/svg%3E") no-repeat center / 100% 100%;
+}
 
 /* Hand-drawn ink underline: a wobbly main stroke plus a fainter second
    pass, roughened at the edges like a pen dragging on paper. */
