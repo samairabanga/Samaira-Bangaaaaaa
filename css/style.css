@@ -106,12 +106,6 @@ ul { list-style: none; margin: 0; padding: 0; }
   margin-bottom: 18px;
 }
 
-.numero {
-  font-size: 0.32em;
-  font-style: italic;
-  vertical-align: top;
-  margin-right: 4px;
-}
 
 .name {
   font-family: var(--press);

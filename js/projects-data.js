@@ -4,65 +4,6 @@
 // (spine, pages, shadow) should already be baked into that image.
 const PROJECTS = [
   {
-    slug: "whoop",
-    title: "WHOOP",
-    role: "Wearable fitness and health platform",
-    meta: "Community campaign",
-    cover: "assets/whoop-cover.jpg",
-    // Full-width horizontal photo, clickable.
-    photos: [
-      {
-        image: "assets/whoop.jpg",
-        url: "https://www.linkedin.com/feed/update/urn:li:activity:7473116035550736384/"
-      }
-    ],
-    body: [
-      "Campaign for the MASS AI Coalition, a private sector initiative encouraging founders, operators, and students new to Boston to build from Boston."
-    ]
-  },
-  {
-    slug: "sunrooof",
-    title: "SUNROOOF",
-    role: "Patented wellness lighting technology",
-    meta: "Brand Marketing Intern",
-    cover: "assets/sunrooof-cover.jpg",
-    // Each entry is a clickable thumbnail (opens the Instagram Reel in a
-    // new tab) paired with its own `text` paragraph(s), rendered right
-    // next to it in a shared grid row.
-    videos: [
-      {
-        thumbnail: "assets/sunrooof-reel-1.jpg",
-        url: "https://www.instagram.com/reel/Dbx7BBmJCUR/",
-        text: [
-          "<strong>#1 Founder-led storytelling:</strong> We have spent decades improving artificial light, but our bodies evolved to require natural light."
-        ]
-      },
-      {
-        thumbnail: "assets/sunrooof-reel-2.jpg",
-        url: "https://www.instagram.com/p/DWBnBYdkSQD/",
-        text: [
-          "<strong>#2 Celebrity Collaboration:</strong> Building social proof through Bollywood actress Shilpa Shetty."
-        ]
-      }
-    ]
-  },
-  {
-    slug: "gamma",
-    title: "GAMMA",
-    role: "AI powered presentations",
-    meta: "Campaign",
-    cover: "assets/gamma-cover.jpg",
-    photos: [
-      {
-        image: "assets/gamma.jpg",
-        url: "https://www.linkedin.com/feed/update/urn:li:activity:7478933854884425728/"
-      }
-    ],
-    body: [
-      "3 Perspectives on the process and creativity of visual communication in the age of AI."
-    ]
-  },
-  {
     slug: "clodo",
     title: "Clodo AI (YC)",
     role: "Backed by Y Combinator — planet scale people sourcing",
@@ -106,6 +47,65 @@ const PROJECTS = [
         url: "https://www.instagram.com/reels/DbL_dWmSLYs/",
         text: [
           "Created short-form content targeted at increasing community membership, 12k+ views, 3% conversion rate."
+        ]
+      }
+    ]
+  },
+  {
+    slug: "whoop",
+    title: "WHOOP",
+    role: "Wearable fitness and health platform",
+    meta: "Community campaign",
+    cover: "assets/whoop-cover.jpg",
+    // Full-width horizontal photo, clickable.
+    photos: [
+      {
+        image: "assets/whoop.jpg",
+        url: "https://www.linkedin.com/feed/update/urn:li:activity:7473116035550736384/"
+      }
+    ],
+    body: [
+      "Campaign for the MASS AI Coalition, a private sector initiative encouraging founders, operators, and students new to Boston to build from Boston."
+    ]
+  },
+  {
+    slug: "gamma",
+    title: "GAMMA",
+    role: "AI powered presentations",
+    meta: "Campaign",
+    cover: "assets/gamma-cover.jpg",
+    photos: [
+      {
+        image: "assets/gamma.jpg",
+        url: "https://www.linkedin.com/feed/update/urn:li:activity:7478933854884425728/"
+      }
+    ],
+    body: [
+      "3 Perspectives on the process and creativity of visual communication in the age of AI."
+    ]
+  },
+  {
+    slug: "sunrooof",
+    title: "SUNROOOF",
+    role: "Patented wellness lighting technology",
+    meta: "Brand Marketing Intern",
+    cover: "assets/sunrooof-cover.jpg",
+    // Each entry is a clickable thumbnail (opens the Instagram Reel in a
+    // new tab) paired with its own `text` paragraph(s), rendered right
+    // next to it in a shared grid row.
+    videos: [
+      {
+        thumbnail: "assets/sunrooof-reel-1.jpg",
+        url: "https://www.instagram.com/reel/Dbx7BBmJCUR/",
+        text: [
+          "<strong>#1 Founder-led storytelling:</strong> We have spent decades improving artificial light, but our bodies evolved to require natural light."
+        ]
+      },
+      {
+        thumbnail: "assets/sunrooof-reel-2.jpg",
+        url: "https://www.instagram.com/p/DWBnBYdkSQD/",
+        text: [
+          "<strong>#2 Celebrity Collaboration:</strong> Building social proof through Bollywood actress Shilpa Shetty."
         ]
       }
     ]
