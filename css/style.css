@@ -100,12 +100,18 @@ ul { list-style: none; margin: 0; padding: 0; }
 
 .hero {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 32px;
 }
 
-/* Sit the number a little above the photo's centre line. */
-.hero-stat { margin-bottom: 48px; }
+/* Tufts ink stamp: its cream paper melts into ours, slightly askew. */
+.stamp {
+  width: 100%;
+  max-width: 200px;
+  margin-bottom: 18px;
+  mix-blend-mode: multiply;
+  transform: rotate(-2deg);
+}
 
 .headshot {
   width: 46%;
