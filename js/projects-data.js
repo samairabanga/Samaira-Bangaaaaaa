@@ -63,40 +63,6 @@ const PROJECTS = [
     ]
   },
   {
-    slug: "jumboventures",
-    title: "JumboVentures",
-    role: "Tufts startup incubator club",
-    meta: "Director of Partnerships",
-    cover: "assets/jumboventures-cover.jpg",
-    // Landscape/mixed-aspect photos — rendered at their natural aspect
-    // ratio (unlike the portrait video thumbnails), 2 per row, each with
-    // its own caption directly below it.
-    gallery: [
-      {
-        image: "assets/jv1.png",
-        text: [
-          "Hosted 5+ podcast-style fireside chats with Alumni:"
-        ]
-      },
-      {
-        image: "assets/jv2.png",
-        text: [
-          "Jesse Zhang, Beacons AI. Katy Nelson, Ex-A16z. Steve Kaufer, Tripadvisor."
-        ]
-      },
-      {
-        image: "assets/jv3.png",
-        url: "https://www.linkedin.com/feed/update/urn:li:activity:7440194432399851520/",
-        text: ["Generated 50k+ LinkedIn impressions for Jumboventures."]
-      },
-      {
-        image: "assets/jv4.png",
-        url: "https://www.linkedin.com/feed/update/urn:li:activity:7452822623039852544/",
-        text: ["Increasing awareness and event attendance across other Boston schools."]
-      }
-    ]
-  },
-  {
     slug: "clodo",
     title: "Clodo AI (YC)",
     role: "Backed by Y Combinator — planet scale people sourcing",
