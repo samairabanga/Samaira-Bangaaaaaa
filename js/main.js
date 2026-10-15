@@ -9,7 +9,7 @@ function renderProjectList() {
       <a class="row" href="project.html?slug=${encodeURIComponent(p.slug)}">
         <span class="row-key">${pad(i + 1)}</span>
         <span><span class="row-title">${p.title}</span><br /><span class="muted">${p.meta}</span></span>
-        <span class="arrow">&nearr;</span>
+        <span class="arrow">&rarr;</span>
       </a>
     </li>
   `).join("");
@@ -25,7 +25,7 @@ function figure({ image, url, text, portrait }) {
     ? `<a href="${url}" target="_blank" rel="noopener noreferrer">${img}</a>`
     : img;
   const view = url
-    ? `<a class="view" href="${url}" target="_blank" rel="noopener noreferrer">View on ${site} <span class="arrow">&nearr;</span></a>`
+    ? `<a class="view" href="${url}" target="_blank" rel="noopener noreferrer">View on ${site} <span class="arrow">&rarr;</span></a>`
     : "";
   const caption = paragraphs(text) + view;
 
