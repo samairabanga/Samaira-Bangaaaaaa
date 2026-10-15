@@ -31,13 +31,7 @@ const PROJECTS = [
         thumbnail: "assets/girlsintovc-photo-1.jpg",
         url: "https://www.linkedin.com/feed/update/urn:li:activity:7467707389861928960/",
         text: [
-          "A16z Boston Tech Week Hackathon."
-        ]
-      },
-      {
-        thumbnail: "assets/girlsintovc-photo-2.jpg",
-        url: "https://www.linkedin.com/feed/update/urn:li:activity:7467707389861928960/",
-        text: [
+          "A16z Boston Tech Week Hackathon.",
           "Partnered with Lovable & Silicon Valley Bank, 100+ signups via socials."
         ]
       },
