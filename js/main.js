@@ -91,6 +91,107 @@ function setupInk() {
   });
 }
 
+// ---------- Sounds, synthesised with Web Audio (no files to load) ----------
+
+let audio;
+function audioCtx() {
+  if (!audio) {
+    const Ctx = window.AudioContext || window.webkitAudioContext;
+    if (!Ctx) return null;
+    audio = new Ctx();
+  }
+  if (audio.state === "suspended") audio.resume();
+  return audio;
+}
+
+// A short burst of filtered noise: the building block of both sounds.
+function noiseBurst(ctx, at, { duration, type, freq, q = 1, gain }) {
+  const len = Math.ceil(ctx.sampleRate * duration);
+  const buf = ctx.createBuffer(1, len, ctx.sampleRate);
+  const data = buf.getChannelData(0);
+  for (let i = 0; i < len; i++) data[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, 3);
+  const src = ctx.createBufferSource();
+  src.buffer = buf;
+  const filter = ctx.createBiquadFilter();
+  filter.type = type;
+  filter.frequency.value = freq;
+  filter.Q.value = q;
+  const amp = ctx.createGain();
+  amp.gain.value = gain;
+  src.connect(filter).connect(amp).connect(ctx.destination);
+  src.start(at);
+}
+
+// Camera shutter: mirror slap, then the shutter curtain a beat later.
+function playShutter() {
+  const ctx = audioCtx();
+  if (!ctx) return;
+  const t = ctx.currentTime;
+  noiseBurst(ctx, t, { duration: 0.05, type: "bandpass", freq: 2400, q: 0.8, gain: 1.2 });
+  noiseBurst(ctx, t, { duration: 0.08, type: "lowpass", freq: 400, gain: 0.8 });
+  noiseBurst(ctx, t + 0.09, { duration: 0.04, type: "bandpass", freq: 3800, q: 1.2, gain: 1 });
+  noiseBurst(ctx, t + 0.09, { duration: 0.06, type: "lowpass", freq: 600, gain: 0.5 });
+}
+
+// Rubber stamp: a heavy low thump with a papery slap on top.
+function playStamp(delay = 0) {
+  const ctx = audioCtx();
+  if (!ctx) return;
+  const t = ctx.currentTime + delay;
+  const osc = ctx.createOscillator();
+  const amp = ctx.createGain();
+  osc.type = "sine";
+  osc.frequency.setValueAtTime(140, t);
+  osc.frequency.exponentialRampToValueAtTime(45, t + 0.15);
+  amp.gain.setValueAtTime(0.0001, t);
+  amp.gain.exponentialRampToValueAtTime(1.1, t + 0.005);
+  amp.gain.exponentialRampToValueAtTime(0.0001, t + 0.22);
+  osc.connect(amp).connect(ctx.destination);
+  osc.start(t);
+  osc.stop(t + 0.25);
+  noiseBurst(ctx, t, { duration: 0.07, type: "lowpass", freq: 1800, gain: 0.9 });
+}
+
+// Restart a CSS animation class even if it is mid-play.
+function replay(el, cls) {
+  el.classList.remove(cls);
+  void el.offsetWidth;
+  el.classList.add(cls);
+}
+
+function onActivate(el, fn) {
+  el.addEventListener("click", fn);
+  el.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") { e.preventDefault(); fn(); }
+  });
+}
+
+function setupCamera() {
+  const camera = document.getElementById("camera");
+  if (!camera) return;
+  const flash = document.createElement("span");
+  flash.className = "flash";
+  camera.appendChild(flash);
+  onActivate(camera, () => {
+    playShutter();
+    replay(camera, "snap");
+  });
+}
+
+function setupStamp() {
+  const stamp = document.getElementById("stamp");
+  const page = document.querySelector(".wrap");
+  if (!stamp) return;
+  onActivate(stamp, () => {
+    // The thump lands when the stamp hits the page, ~0.3s into the motion.
+    playStamp(0.3);
+    replay(stamp, "stamping");
+    replay(page, "thud");
+  });
+}
+
 renderProjectList();
 renderDetail();
 setupInk();
+setupCamera();
+setupStamp();

@@ -115,12 +115,99 @@ ul { list-style: none; margin: 0; padding: 0; }
 
 .hero-stat .label { margin-bottom: 0; }
 
+/* ---------- Shutter (photo) and stamp (05) ---------- */
 
-.headshot {
+.camera,
+.hero-stat {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.camera:focus-visible,
+.hero-stat:focus-visible { outline: 1px dashed var(--ink); outline-offset: 4px; }
+
+.camera {
+  position: relative;
   width: 46%;
   max-width: 260px;
-  height: auto;
+  flex-shrink: 0;
+  overflow: hidden;
 }
+
+.camera .headshot { width: 100%; max-width: none; }
+
+/* Two shutter blades that snap shut from top and bottom, then reopen. */
+.camera::before,
+.camera::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: var(--ink);
+  transform: scaleY(0);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.camera::before { top: 0; transform-origin: top; }
+.camera::after { bottom: 0; transform-origin: bottom; }
+
+.camera.snap::before,
+.camera.snap::after { animation: shutter 0.32s cubic-bezier(0.6, 0, 0.4, 1); }
+
+@keyframes shutter {
+  0%   { transform: scaleY(0); }
+  35%  { transform: scaleY(1.02); }
+  55%  { transform: scaleY(1.02); }
+  100% { transform: scaleY(0); }
+}
+
+/* Flash of light as the shutter reopens. */
+.camera .flash {
+  position: absolute;
+  inset: 0;
+  background: #fffaf0;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.camera.snap .flash { animation: flash 0.6s ease-out 0.16s; }
+
+@keyframes flash {
+  0%   { opacity: 0; }
+  10%  { opacity: 0.95; }
+  100% { opacity: 0; }
+}
+
+/* The stamp lifts, tilts, then slams onto the page. */
+.hero-stat.stamping { animation: stamp 0.55s cubic-bezier(0.5, 0, 0.3, 1); }
+
+@keyframes stamp {
+  0%   { transform: none; box-shadow: none; }
+  40%  { transform: translateY(-10px) rotate(-4deg) scale(1.12); box-shadow: 0 16px 24px rgba(0, 0, 0, 0.35); }
+  58%  { transform: rotate(0.5deg) scale(0.94); box-shadow: 0 0 0 rgba(0, 0, 0, 0); }
+  72%  { transform: scale(1.02); }
+  100% { transform: none; }
+}
+
+/* The page jolts on impact. */
+.wrap.thud { animation: thud 0.25s ease-out 0.3s; }
+
+@keyframes thud {
+  0%, 100% { transform: none; }
+  30% { transform: translate(1px, 2px); }
+  60% { transform: translate(-1px, -1px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .camera.snap::before, .camera.snap::after,
+  .hero-stat.stamping, .wrap.thud { animation: none; }
+}
+
+
+.headshot { height: auto; }
 
 .big-number {
   font-family: var(--press);
