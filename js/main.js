@@ -159,10 +159,26 @@ function replay(el, cls) {
   el.classList.add(cls);
 }
 
+// Browsers only allow sound after the visitor has clicked, tapped or typed
+// somewhere on the page, so start the audio engine on the first such action.
+["pointerdown", "keydown", "touchstart"].forEach((evt) =>
+  window.addEventListener(evt, audioCtx, { once: true, passive: true })
+);
+
+// Fire on hover (mouse), tap (touch) or Enter/Space (keyboard). A short
+// cooldown stops a tap, which also counts as a hover, from firing twice.
 function onActivate(el, fn) {
-  el.addEventListener("click", fn);
+  let last = 0;
+  const run = () => {
+    const now = Date.now();
+    if (now - last < 600) return;
+    last = now;
+    fn();
+  };
+  el.addEventListener("mouseenter", run);
+  el.addEventListener("click", run);
   el.addEventListener("keydown", (e) => {
-    if (e.key === "Enter" || e.key === " ") { e.preventDefault(); fn(); }
+    if (e.key === "Enter" || e.key === " ") { e.preventDefault(); run(); }
   });
 }
 
