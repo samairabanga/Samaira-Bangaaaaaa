@@ -145,6 +145,52 @@ ul { list-style: none; margin: 0; padding: 0; }
 
 .byline { display: inline-block; }
 
+/* Touch-to-ink: on hover or tap, an ink block rolls in behind the text
+   from the left, the type flips to paper colour with a small stamp-like
+   press, then after a few seconds the ink rolls off to the right.
+   Only background-size is transitioned, so the anchor can jump from
+   right to left unseen while the block is empty or full. */
+.ink {
+  padding: 0 0.15em;
+  margin: 0 -0.15em;
+  cursor: default;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  background: linear-gradient(var(--ink), var(--ink)) no-repeat right / 0% 100%;
+  /* Rolling off: type turns back to ink as the block starts to leave. */
+  transition:
+    background-size 0.45s cubic-bezier(0.7, 0, 0.2, 1),
+    color 0.15s ease 0.1s,
+    text-shadow 0.15s ease 0.1s;
+}
+
+.ink.inked {
+  background-position: left;
+  background-size: 100% 100%;
+  color: var(--paper);
+  text-shadow: none;
+  animation: press 0.45s ease-out;
+  /* Rolling on: type flips to paper colour once the block has nearly covered it. */
+  transition:
+    background-size 0.45s cubic-bezier(0.7, 0, 0.2, 1),
+    color 0.12s ease 0.28s,
+    text-shadow 0.12s ease 0.28s;
+}
+
+@keyframes press {
+  0%, 40% { transform: translateY(0); }
+  60%     { transform: translateY(1.5px) scale(0.995); }
+  100%    { transform: translateY(0); }
+}
+
+.name .ink,
+.tagline .ink,
+.byline .label .ink { display: inline-block; }
+
+@media (prefers-reduced-motion: reduce) {
+  .ink, .ink.inked { transition: none; animation: none; }
+}
+
 .byline .label {
   font-size: 0.95rem;
   margin-bottom: 0;

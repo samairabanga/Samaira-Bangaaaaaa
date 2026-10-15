@@ -70,5 +70,20 @@ function renderDetail() {
   `;
 }
 
+// Touch-to-ink: hovering or tapping a line inks it for a few seconds.
+function setupInk() {
+  document.querySelectorAll(".ink").forEach((el) => {
+    let timer;
+    const ink = () => {
+      el.classList.add("inked");
+      clearTimeout(timer);
+      timer = setTimeout(() => el.classList.remove("inked"), 2500);
+    };
+    el.addEventListener("mouseenter", ink);
+    el.addEventListener("click", ink);
+  });
+}
+
 renderProjectList();
 renderDetail();
+setupInk();
