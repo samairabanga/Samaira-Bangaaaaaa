@@ -61,9 +61,6 @@ const PROJECTS = [
         image: "assets/whoop.jpg",
         url: "https://www.linkedin.com/feed/update/urn:li:activity:7473116035550736384/"
       }
-    ],
-    body: [
-      "Campaign for the MASS AI Coalition, a private sector initiative encouraging founders, operators, and students new to Boston to build from Boston."
     ]
   },
   {
